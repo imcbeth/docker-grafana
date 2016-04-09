@@ -2,6 +2,8 @@ FROM debian:jessie
 
 ARG GRAFANA_VERSION
 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
 RUN apt-get update && \
     apt-get -y --no-install-recommends install libfontconfig curl ca-certificates && \
     apt-get clean && \
